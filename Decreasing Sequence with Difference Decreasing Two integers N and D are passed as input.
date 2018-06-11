@@ -35,8 +35,25 @@ int main()
        
        printf(" %d",c);
        
-       
-       
-       
-   }
+    }
 }
+
+using for loop:
+int main()
+{
+int n,x;
+scanf("%d%d",&n,&x);
+int  i,t=x,o=0;
+for(i=n-t;o<b;o++,i=i-t)
+{
+printf("%d",i);
+t--;
+}
+}
+
+
+
+
+
+
+
