@@ -1,0 +1,113 @@
+Count of common characters in two strings 
+
+Two string values S1 and S2 are passed as input.
+The program must print the count of common characters in the strings S1 and S2.
+Assume the alphabets in S1 and S2 will be in lower case.Input Format:First line will contain the value of string S1Second line will contain the value of string S2Output Format:First line will contain the count of common alphabets.Boundary Conditions:Length of S1 and S2 will be from 3 to 100.Sample Input/Output:Example 1:Input:chinaindiaOutput:3
+Explanation:The common characters are i,n,a
+Example 2:Input:energyeveryOutput:3
+Explanation:The common characters are e,r,y
+
+
+
+
+
+my solution:
+
+#include<stdio.h>
+
+int main()
+{
+    char s[100],p[100];
+    scanf("%s%s",s,p);
+    int l=strlen(s),e,m;
+    int h=strlen(p),i,j;
+    int c=0;
+    for(i=0;i<l;i++)
+    {
+        for(j=i+1;j<l;j++)
+        {
+            if(s[i]==s[j])
+            {
+                s[j]='*';
+            }
+        }
+    }
+    for(e=0;e<h;e++)
+    {
+        for(m=e+1;m<h;m++)
+        {
+            if(p[e]==p[m])
+            {
+                p[m]='@';
+            }
+        }
+    }
+    for(i=0;i<l;i++)
+    {
+        for(j=0;j<h;j++)
+        {
+            if(s[i]==p[j])
+            {
+              s[i]='$';  
+            }
+        }
+    }
+   for(i=0;i<l;i++)
+   {
+       if(s[i]=='$')
+       {
+           c++;
+       }
+   }
+   printf("%d",c);
+  
+    
+    
+}
+
+
+SKILLRACK PROVIDED SOLUTION FOR MY REFERENCE:
+#include <stdio.h>
+int main()
+{
+char s1[100]; 
+char s2[100]; 
+scanf("%s",s1); scanf("%s",s2); 
+char alphabetsAlreadyPresent[26]; 
+int commonCount=0;
+char *ptr = s1; 
+while(*ptr != '\0')
+{ 
+char *sec = s2;
+while(*sec != '\0')
+{ if(*ptr == *sec)
+{ 
+int index=0; 
+int canAdd=1;
+while(index < commonCount)
+{ 
+   if(alphabetsAlreadyPresent[index] == *ptr)
+ { 
+    canAdd=0;
+    break; 
+   } 
+  index++;
+   } 
+ if(canAdd)
+    { 
+   alphabetsAlreadyPresent[commonCount] = *ptr; commonCount++;
+    } 
+  } 
+  sec++; 
+  }
+ptr++; 
+} 
+printf("%d",commonCount); 
+}
+
+
+
+
+
+
+
