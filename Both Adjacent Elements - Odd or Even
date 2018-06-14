@@ -1,0 +1,45 @@
+Both Adjacent Elements - Odd or Even
+
+Given an array of N positive integers, print the positive integers that have both the adjacent element values as odd or even.
+Boundary Condition(s):3 <= N <= 1000Input Format:The first line contains N.
+The second line contains N elements separated by space(s).
+Output Format:The first line contains the elements (which have both the adjacent element values as odd or even) separated by a space.
+Example Input/Output 1:
+Input:710 21 20 33 98 66 29
+Output:21 20 33
+Example Input/Output 2:
+Input:511 21 30 99 52
+Output:30 99
+
+
+
+
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   int n;
+   scanf("%d",&n);
+   int a[1000];
+   int i;
+   for(i=0;i<n;i++)
+   {
+       scanf("%d",&a[i]);
+   }
+   for(i=0;i<n;i++)
+   {
+       if(i!=0 && i!=n-1)
+       {
+       if(a[i-1]%2!=0 && a[i+1]%2!=0)
+       {
+           printf(" %d",a[i]);
+       }
+       else if(a[i-1]%2==0 && a[i+1]%2==0)
+       {
+           printf(" %d",a[i]);
+       }
+       }
+   }
+
+}
