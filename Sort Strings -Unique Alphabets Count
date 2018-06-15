@@ -1,0 +1,81 @@
+/*Sort Strings -Unique Alphabets Count
+
+
+N string values are passed as input. 
+The program must sort and print the strings based on the count of unique alphabets in them.
+If two strings have same unique alphabet count, then sort them based on lexicographical order. 
+Sorting based on the count of unique characters must be done in descending order (that is the string having the highest
+unique character count must be printed first).
+Boundary Condition(s):1 <= N <= 1001 <= Length of string <= 1000
+Input Format:The first line contains N.
+The next N lines contain the values of N strings.
+Output Format:The first N lines contain the string values sorted based on the given conditions.
+
+Example Input/Output 1:
+Input:3bubbletelegrammunch
+Output:telegrammunchbubble
+
+Example Input/Output 2:
+Input:4sitminerfloodtemple
+Output:minertemplefloodsit*/
+
+
+
+
+
+in c++:
+
+#include <iostream>
+ 
+using namespace std;
+
+int main(int argc, char** argv)
+{
+    int n;
+    cin>>n;
+    string s[n],x;
+    int i,j,k,temp;
+    int a[n]={0};
+    for(i=0;i<n;i++)
+    {
+        cin>>s[i];
+        
+        for(j=0;j<s[i].length();j++)
+        {
+            for(k=0;k<j;k++)
+            
+                if(s[i][j]==s[i][k])
+                 break;
+                if(k==j)
+                a[i]++;
+            
+        }
+    }
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+     {
+            if(a[i]<a[j])
+            {
+               temp=a[i];
+               a[i]=a[j];
+               a[j]=temp;
+               x=s[i];
+               s[i]=s[j];
+               s[j]=x;
+            }
+            
+            else if(a[i]==a[j]&&s[i]>s[j])
+            {
+                x=s[i];
+                s[i]=s[j];
+                s[j]=x;
+            }
+     }
+    }
+    
+    
+    for(i=0;i<n;i++)
+     cout<<s[i]<<endl;
+
+}
