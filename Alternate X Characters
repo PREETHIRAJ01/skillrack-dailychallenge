@@ -1,0 +1,45 @@
+
+/*Alternate X Characters
+
+Accept a string S and a position X as input. 
+The program must print the alternate X characters in the string by printing the first X characters and ignoring the next X characters. 
+This process is repeated until the last character is reached
+.Boundary Condition(s):2 <= Length of String, S <= 10002 <= X <= 10
+Input Format:The first line contains the string S.
+The second line contains the value of X.Output Format:The first line contains the string with alternate X characters.
+Example Input/Output 1:Input:helloworld3Output:helorl
+Example Input/Output 2:Input:environmentalpollution5Output:envirtalpoon
+*/
+
+
+
+
+
+
+
+
+
+
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+   char s[1000];
+   scanf("%[^\n]s",s);
+   int x,c=0,i;
+   scanf("%d",&x);
+   for(i=0;i<strlen(s);i++)
+   {
+       printf("%c",s[i]);
+       printf("%d",c);
+       c++;
+       if(c==x)
+       {
+           i=i+x;
+           c=0;
+       }
+       
+   }
+
+}
