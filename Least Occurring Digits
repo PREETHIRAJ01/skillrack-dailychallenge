@@ -1,0 +1,62 @@
+/*Least Occurring Digits
+
+
+A series of N integers is passed as input. 
+The program must print the least occurring digit(s) in series of integers in ascending order.
+Boundary Condition(s):1 <= N <= 1000Input Format:The first line contains the series of integers separated by space(s).
+Output Format:The first line contains the least repeated digits in ascending order separated by a space.
+Example Input/Output 1:
+Input:35 81 78 84 53
+Output:1 4 7
+Example Input/Output 2:
+Input:12 21 68 55 71 29 60 879
+Output:0
+*/
+
+
+
+
+
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+  long int n;
+  long int b[10]={0};
+  int i,j,r;
+  long int a[1000];
+  int min=1000,k=0;
+  while(scanf("%ld",&n)==1) //you are getting the input here
+  {
+      while(n!=0) //this while loop is for separating the digits of a number and incrementing its count in b[i] array    
+      {
+          r=n%10;
+          for(i=0;i<10;i++)
+          {
+          if(r==i)
+          {
+              b[i]++;
+          }
+          }
+          n=n/10;
+      }
+  }
+  for(i=0;i<10;i++)//this loop is used to check the minimum occured number and storing it in min.
+  {
+      if(b[i]<min && b[i]!=0)
+      {
+          min=b[i];
+      }
+  }
+  for(i=0;i<10;i++)// this for loop is used to check the numbers having same min value,if they are present we store it in a[i]array.
+  {
+      if(min==b[i])
+      {
+          a[k++]=i;
+      }
+  }
+  for(i=0;i<k;i++)// this used to print the elements those minimally occured.
+  printf("% ld",a[i]);
+
+}
