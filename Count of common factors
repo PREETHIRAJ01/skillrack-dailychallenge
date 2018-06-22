@@ -1,0 +1,63 @@
+/*Count of common factors
+
+Given a set of numbers where all other numbers are multiple of the smallest number, 
+the program must find the count of the common factors C excluding 1.
+Input Format:First line will contain the integer value N representing how many numbers are passed as input.
+Next N lines will have the numbers.Output Format:First line will contain the count of common factors C.
+Constraints:N will be from 2 to 20.
+Sample Input/Output:Example 1:Input:210075 Output:2Explanation:The common factors excluding 1 are 5,25.
+Hence output is 2
+Example 2:Input:3102030Output:3Explanation:The common factors excluding 1 are 2,5,10. Hence output is 3.
+*/
+
+
+
+
+
+
+
+#include<stdio.h>
+#include <stdlib.h>
+int main()
+{
+   int n;
+   scanf("%d",&n);
+   int a[n];
+   int i,j,maximumdivider=2,count=0,k;
+   for(i=0;i<n;i++)
+   {
+       scanf("%d",&a[i]);
+   }
+   for(k=0;k<n;k++)
+   {
+       if(a[k]>maximumdivider)
+       {
+        maximumdivider=a[k];
+       }
+   }
+   
+   for(i=2;i<=maximumdivider;i++)
+   {
+       int c=0;
+       
+       for(j=0;j<n;j++)
+       {
+       if(a[j]%i==0)
+       {
+           c++;
+       }
+       else
+       {
+           continue;
+       }
+       }
+   
+   if(c==n)
+   {
+  
+     count++;
+   }
+   }
+   printf("%d",count);
+
+}
