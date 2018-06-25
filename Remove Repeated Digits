@@ -1,0 +1,57 @@
+/*Remove Repeated Digits
+
+
+Given a number N, replace the consequently repeating digits in N by just one occurrence of that digit
+.Boundary Condition(s):1 <= N <= 10^18
+Input Format:The first line contains the value of N.
+Output Format:The first line contains the value after removal of the repeated digits as mentioned above.
+Example Input/Output 1:
+Input:12253334005556
+Output:12534056
+Example Input/Output 2:
+Input:10234454
+Output:1023454
+*/
+
+
+
+
+
+
+
+
+
+
+#include<stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+ long long int n;
+  scanf("%lld",&n);
+  int r;
+  long long int a[10000],i,j,k=0;
+  while(n!=0)
+  {
+      r=n%10;
+      a[k++]=r;
+      n=n/10;
+  }
+for(i=0;i<k;i++)
+{
+   
+        if(a[i]==a[i+1])
+        {
+            a[i]='*';
+        }
+    
+}
+for(i=k-1;i>=0;i--)
+{
+    if(a[i]!='*')
+    {
+        printf("%d",a[i]);
+    }
+}
+
+}
